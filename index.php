@@ -1,6 +1,6 @@
 <?php
 
-
+header("Access-Control-Allow-Origin: *");
 define('BASEPATH', '/index.php');
 require_once(__DIR__ . './routers/router.php');
 require_once(__DIR__ . './controllers/Home.controller.php');
@@ -11,6 +11,6 @@ App\Router::post(BASEPATH . '/r', function () {
     print_r($_POST);
 });
 
-echo (App\Router::handle($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']));
+echo (App\Router::handle($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI'], $_GET, $_POST));
 
 ?>

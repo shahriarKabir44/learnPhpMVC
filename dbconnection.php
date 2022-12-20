@@ -39,7 +39,9 @@ class DbConnection
             $statement = DbConnection::$connection->prepare($sql);
             $statement->execute($values);
         } catch (\Throwable $th) {
-            //throw $th;
+            if (DbConnection::$connection->inTransaction()) {
+                DbConnection::$connection->rollBack();
+            }
         }
 
     }

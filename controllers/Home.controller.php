@@ -14,19 +14,19 @@ use View;
 class HomeController
 {
 
-    public static function Index()
+    public static function Index($reqParams = null, $reqBody = null)
     {
         return (new View\View('Home', ['a' => "ewwe"]))->render();
     }
-    public static function Form()
+    public static function Form($reqParams = null, $reqBody = null)
     {
         $data = ["name" => "poop"];
         return \json_encode($data);
     }
-    public static function getUsers()
+    public static function getUsers($reqParams = null, $reqBody = null)
     {
 
-        $data = \Models\User::findById(1);
+        $data = \Models\User::findById($reqParams['Id']);
         return \json_encode($data);
     }
 }

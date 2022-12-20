@@ -19,11 +19,11 @@ class Router
     {
         Router::registerRoute('POST', $path, $action);
     }
-    public static function handle(string $requestType, string $path)
+    public static function handle(string $requestType, string $path, array $reqParams, array $reqBody)
     {
 
         $path = explode('?', $path)[0];
-        return Router::$routes[$requestType][$path]();
+        return Router::$routes[$requestType][$path]($reqParams, $reqBody);
     }
 }
 

@@ -19,7 +19,7 @@
     //window.onload = f
     function f() {
         console.log('here')
-        fetch('/index.php/getUsers', {
+        fetch('/index.php/getUsers?Id=1', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
